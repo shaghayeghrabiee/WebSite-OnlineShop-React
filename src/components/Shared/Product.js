@@ -2,6 +2,7 @@ import React,{useContext} from 'react';
 import { Shorten,isInCart,quantityCount } from '../../Helper/function';
 import {Link} from 'react-router-dom';
 import { cartContext } from '../../context/CartContextProvider';
+import trashIcon from '../../assets/icons/trash.svg';
 //function
 
 
@@ -15,7 +16,7 @@ const Product = ({productDetail}) => {
             <div>
                 <Link to={`/store/${productDetail.id}`}>Details</Link>
                 <div>
-                {quantityCount(state,productDetail.id)=== 1 && <button onClick={()=> dispatch({type:"REMOVE_ITEM", payload:productDetail})}> Remove</button>}    
+                {quantityCount(state,productDetail.id)=== 1 && <button onClick={()=> dispatch({type:"REMOVE_ITEM", payload:productDetail})}> <img src={trashIcon} alt="Remove" style={{width: "20px"}}/></button>}    
                 {quantityCount(state,productDetail.id)> 1 && <button onClick={()=> dispatch({type:"DECREASE", payload:productDetail})}> - </button>} 
                 {
 

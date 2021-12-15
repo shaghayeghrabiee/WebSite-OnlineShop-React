@@ -7,6 +7,8 @@ import { Route, Routes } from 'react-router-dom';
 //context
 import CartContextProvider ,{cartContext} from './context/CartContextProvider';
 import ProductContextProvider from './context/ProductContextProvider';
+import NavBar from './components/Shared/NavBar';
+import Cart from './components/Cart';
 
 
 function App() {
@@ -14,14 +16,16 @@ function App() {
     <div className="App">
 
     <ProductContextProvider>
-   <CartContextProvider>
-   <Routes>
-     <Route path="/login" element={<Login/>}/>
-     <Route path ="/signUp" element={<SignUp/>}/>
-     <Route path="/store/:id" element={<ProductDetail/>}/>
-     <Route path="/store" element={<Store/>}/>
-   </Routes>   
-   </CartContextProvider>
+    <CartContextProvider>
+      <NavBar/>
+      <Routes>
+        <Route path="/login" element={<Login/>}/>
+        <Route path ="/signUp" element={<SignUp/>}/>
+        <Route path="/store/:id" element={<ProductDetail/>}/>
+        <Route path="/cart" element={<Cart/>}/>
+        <Route path="/store" element={<Store/>}/>
+      </Routes>   
+    </CartContextProvider>
    
     </ProductContextProvider>
 

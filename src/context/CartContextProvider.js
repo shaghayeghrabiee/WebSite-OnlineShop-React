@@ -1,4 +1,4 @@
-import React,{useReducer,createContext} from 'react';
+import React,{ useReducer , createContext } from 'react';
 
 const initialState={
     selectedItem:[],
@@ -7,7 +7,11 @@ const initialState={
     checkOut:false
 }
 
-
+const sumItem=items=>{
+    const itemCounter= items.reduce((total,product)=> total+ product.quantity , 0);
+    const totalCost= items.reduce((total,product)=> total + product.quantity * product.price,0 ).toFixed(2);
+    return {itemCounter,totalCost}
+}
 const cartReducer=(state,action)=>{
     console.log(state);
     switch (action.type) {
@@ -16,17 +20,20 @@ const cartReducer=(state,action)=>{
                 state.selectedItem.push({
                     ...action.payload,
                     quantity:1
+                    
                 })
             }
             return{
                 ...state,
-                selectedItem: [...state.selectedItem]
+                selectedItem: [...state.selectedItem],
+                ...sumItem(state.selectedItem)
             }
         case "REMOVE_ITEM":
             const newSelectedItem = state.selectedItem.filter(item=> item.id !== action.payload.id);
             return{
                 ...state,
-                selectedItem:  [...newSelectedItem]
+                selectedItem:  [...newSelectedItem],
+                ...sumItem(state.selectedItem)
             }
          
         case "INCREASE":
@@ -34,12 +41,14 @@ const cartReducer=(state,action)=>{
             state.selectedItem[indexI].quantity++;
             return{
                 ...state,
+                ...sumItem(state.selectedItem)
             }
         case "DECREASE":
             const indexD = state.selectedItem.findIndex(item=> item.id=== action.payload.id);
             state.selectedItem[indexD].quantity--;
             return{
                 ...state,
+                ...sumItem(state.selectedItem)
             }
         case "CHECKOUT":
             return{
