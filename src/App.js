@@ -8,7 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 import CartContextProvider ,{cartContext} from './context/CartContextProvider';
 import ProductContextProvider from './context/ProductContextProvider';
 import NavBar from './components/Shared/NavBar';
-import Cart from './components/Cart';
+import Carts from './components/Carts';
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
         <Route path="/login" element={<Login/>}/>
         <Route path ="/signUp" element={<SignUp/>}/>
         <Route path="/store/:id" element={<ProductDetail/>}/>
-        <Route path="/cart" element={<Cart/>}/>
+        <Route path="/carts" element={<Carts/>}/>
         <Route path="/store" element={<Store/>}/>
       </Routes>   
     </CartContextProvider>
