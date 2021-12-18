@@ -3,7 +3,7 @@ import SignUp from './components/SignUp';
 import Login from './components/Login';
 import Store from './components/Store';
 import ProductDetail from './components/ProductDetail';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 //context
 import CartContextProvider ,{cartContext} from './context/CartContextProvider';
 import ProductContextProvider from './context/ProductContextProvider';
@@ -24,6 +24,7 @@ function App() {
         <Route path="/store/:id" element={<ProductDetail/>}/>
         <Route path="/carts" element={<Carts/>}/>
         <Route path="/store" element={<Store/>}/>
+        <Route path="/*" element={<Navigate to="/store" />}/>
       </Routes>   
     </CartContextProvider>
    

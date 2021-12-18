@@ -10,10 +10,16 @@ const NavBar = () => {
     return ( 
         <div className={styles.mainContainer}>
             <div className={styles.container}>
-                <Link  className={styles.productLink} to="/store">Products</Link>  
+                <div>                
+                    <Link className={styles.productLink} to="/store">Products</Link>  
+                    <Link className={styles.productLink} to="/login">Login</Link>
+                    <Link className={styles.productLink} to="/signUp">Register</Link>
+                </div>
                 <div className={styles.iconContainer}>
-                 <Link to="/carts"><img src={cart} alt="cart"/></Link>
-                <span>{state.itemCounter}</span>    
+                         <div  className={(state.itemCounter===0 ) ? styles.disabled : null}>
+                            <Link to="/carts"><img src={cart} alt="cart"/></Link>
+                            <span>{state.itemCounter}</span>        
+                         </div>
                 </div>
                 
             </div>
