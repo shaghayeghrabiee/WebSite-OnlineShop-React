@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import { cartContext } from '../context/CartContextProvider';
 import Cart from './Cart';
 import {Link} from 'react-router-dom';
-import styles from "./Carts.module.css";
+import styles from "./style/Carts.module.css";
 
 const Carts = () => {
     const {state,dispatch}=useContext(cartContext);

@@ -1,6 +1,6 @@
 import './App.css';
-import SignUp from './components/SignUp';
-import Login from './components/Login';
+import SignUp from "./components/login/SignUp";
+import Login from './components/login/Login';
 import Store from './components/Store';
 import ProductDetail from './components/ProductDetail';
 import { Navigate, Route, Routes } from 'react-router-dom';

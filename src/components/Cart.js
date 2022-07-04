@@ -7,7 +7,7 @@ import { Shorten } from '../Helper/function';
 import trashIcon from '../assets/icons/trash.svg';
 
 // Style
-import styles from "./Cart.module.css";
+import styles from "./style/Cart.module.css";
 
 const Cart = (props) => {
 

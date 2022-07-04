@@ -5,7 +5,7 @@ import Product from './Shared/Product';
 //context
 import {ProductsContext} from '../context/ProductContextProvider';
 // Style
-import styles from "./Store.module.css";
+import styles from "./style/Store.module.css";
 
 const Store = () => {
      const products = useContext(ProductsContext);
